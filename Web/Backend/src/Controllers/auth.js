@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const prisma = require("../prisma/client");
+const prisma = require("../config/database");
 
 //registrar usuario
 async function register(req, res) {
