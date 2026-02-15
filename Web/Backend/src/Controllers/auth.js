@@ -14,9 +14,10 @@ async function register(req, res) {
 
     const usuario = await prisma.usuario.create({
       data: { nombre, contrasena: hash },
-      select: { id: true, nombre: true, createdAt: true },
+      select: { id: true, nombre: true },
     });
 
+    return res.status(201).json({ user: usuario });
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
