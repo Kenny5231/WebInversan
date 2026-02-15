@@ -42,9 +42,9 @@ async function login(req, res) {
       return res.status(401).json({ error: "Credenciales inválidas" });
     }
 
-    return res.json({user: { id: usuario.id, nombre: usuario.nombre } });
-  } catch {
-    return res.status(500).json({ error: "Error del servidor" });
+    return res.json({ mensaje: "Usuario autenticado correctamente" });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
   }
 }
 
